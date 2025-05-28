@@ -16,7 +16,7 @@
         }
         html, body {
         height: 100%;
-        background-color: #333;
+        background-color: #636e72;
         }
         body {
             font-family: sans-serif;
@@ -24,7 +24,7 @@
             padding: 0;
         }
         header {
-            background: #333;
+            background: #393e46;
             color: #fff;
             padding: 1rem 50px 1rem 1rem;
             position: fixed;
@@ -36,6 +36,7 @@
             justify-content: flex-end; /* Align content to the right */
             align-items: center;
             box-sizing: border-box;
+            gap:24px;
         }
         header.hide {
             transform: translateY(-100%);
@@ -44,18 +45,16 @@
         .header-button {
             text-align: center;
             border: solid 0px #ffffff;
-            background-color: #333;
+            background-color: #393e46;
             color: #ffffff;
-            border-radius: 0px;
             font-weight: bold;
             height: 45px;
             width: 45px;
-            display: inline-block;
-            transition: background-color 0.7s, color 0.7s, height 0.5s, width 0.5s;
-            transition: all 0.5s;
-            margin-left: 50px;
-            gap: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 100px;
+            transition: all 0.5s;
         }
         .header-button:not(.b-menu):hover {
             color: #0b0d0f;
@@ -64,7 +63,7 @@
             font-weight: bold;
             height: 55px;
             width: 55px;
-            box-shadow: 0 0 4px 4px #FFC72C;
+            box-shadow: 0 0 10px 10px #FFC72C;
             border-radius: 100px;
         }
         .b-menu:hover {
@@ -74,7 +73,7 @@
             font-weight: bold;
             height: 55px;
             width: 55px;
-            box-shadow: 0 0 4px 4px #FFC72C;
+            box-shadow: 0 0 6px 6px #FFC72C;
             border-radius: 5px;
         }
         .header-img:not(.head-menu) {
@@ -98,7 +97,8 @@
         }
         footer {
             text-align: center;
-            background-color: #333;
+            color: #f8f8f6;
+            background-color: #393e46;
             bottom: 0;
             width: 100%;
             border: none;
@@ -192,6 +192,8 @@
             gap: 10px;
         }
         img:not(.logo, .header-img) {
+             height: 100%;
+             width: 100%;
              border-radius: 5px;
              box-shadow: 0 0 10px 8px #f8f8f6;
              transition: all 0.5s;
@@ -204,16 +206,19 @@
             transition: all 0.5s;
 
         }
-        p {
+        .foot-text{
             color: #ecf0f1;
             font-size: 14px;
             margin: 10px 0;
         }
         
         main {
-        background: linear-gradient(-45deg, #393e46, #222831, #FFC72C, #222831, #393e46);
-        background-size: 400% 400%;
-        animation: gradientFlow 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(-45deg, #393e46, #222831, #FFC72C, #393e46, #393e46);
+    background-size: 400% 400%;
+    animation: gradientFlow 1.5s;
         }
         @keyframes gradientFlow {
         0% {background-position: 0% 50%;}
@@ -221,27 +226,94 @@
         100% {background-position: 0% 0%;}
         }
         .logo {
+            height: 60%;
+            width: 60%;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            border-radius: 5px;
+            border-radius: 0px;
             transition: all 0.5s;
         }
         .logo:hover {
-            height: 15%;
-            width: 15%;
+            height: 100%;
+            width: 100%;
             transition: all 0.5s;
+        }
+        .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 600px;
+            height: 400px;
+            perspective: 1000px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            transition: transform 1.5s cubic-bezier(.4,2,.6,1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            box-shadow: 10px 8px 10px 8px #f8f8f6;
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 8px #f8f8f6;
+            color: #222831;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .flip-card-back {
+            background: #ecf0f1;
+            color: #222831;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+        h2 {
+    color: #222831;
+    margin-bottom: 10px;}
+        p {
+            color: #222831;
+            font-size: 16px;
+            font-weight: bold
         }
     </style>
     <script>
-        
+
     </script>
 </head>
 <body>
     <header class="HEADER">
         <button class="header-button b-cart"><img src="icons/bag.png" alt="Cart" class="header-img cart"></button>
-        <button class="header-button b-profile"><img src="icons/account.png" alt="User Icon" class="header-img profile"></button>
-        <button class="header-button b-menu"><img src="icons/menu.png" alt="User Icon" class="header-img head-menu"></button>
+        <button class="header-button b-profile"><img src="icons/account.png" alt="User" class="header-img profile"></button>
+        <button class="header-button b-menu"><img src="icons/menu.png" alt="Nav" class="header-img head-menu"></button>
     </header>
     <main id="main">
         <div>
@@ -277,37 +349,65 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <div>
-            <img src="https://s7d1.scene7.com/is/image/mcdonalds/McCrispyStrip_COM_1Pub_r1:1-column-desktop?resmode=sharp2" alt="McCrispy Strips" width="60%" height="80%">
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div>
-            <img src="https://s7d1.scene7.com/is/image/mcdonalds/COM_1PUB_DownloadIncentive_FreeBigMac:publication-column-mobile?resmode=sharp2" alt="McDonald's Logo" width="60%" height="60%">
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div>
-            <img src="https://s7d1.scene7.com/is/image/mcdonalds/1PUB-MCVALUE-INTRO:publication-column-mobile?resmode=sharp2" alt="McDonald's Logo" width="60%" height="60%">
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        </main>
+        <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://s7d1.scene7.com/is/image/mcdonalds/McCrispyStrip_COM_1Pub_r1:1-column-desktop?resmode=sharp2" alt="McCrispy Strips">
+    </div>
+    <div class="flip-card-back">
+      <div class="flip-text">
+        <h2>McCrispy Strips</h2>
+        <p>Delicious crispy chicken strips, perfect for any meal!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://s7d1.scene7.com/is/image/mcdonalds/COM_1PUB_DownloadIncentive_FreeBigMac:publication-column-mobile?resmode=sharp2" alt="Free Big Mac">
+    </div>
+    <div class="flip-card-back">
+      <div class="flip-text">
+        <h2>FREE BIG MAC</h2>
+        <p>Download our app and get a free Big Mac with your first order!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://s7d1.scene7.com/is/image/mcdonalds/1PUB_Breakfast_2336x1040:1-column-desktop?resmode=sharp2" alt="McValue Intro">
+    </div>
+    <div class="flip-card-back">
+      <div class="flip-text">
+        <h2>BREAKFAST COMES FIRST</h2>
+        <p>Breakfast is the first meal of the day for a reason</p>
+        <p>Come make it special at McDonalds</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+</main>
     <footer>
-        <p>&copy;A&D WEB DEVELOPMENT</p>
-        <p>All images used in this example were sorced from the &copy;McDonalds Corporation</p>
-        <p>This website has no relation to the McDonalds Corporation</p>
+        <br>
+        <p class="foot-text">&copy;A&D WEB DEVELOPMENT</p>
+        <p class="foot-text">All images used in this example were sorced from the &copy;McDonalds Corporation</p>
+        <p class="foot-text">This website has no relation to the McDonalds Corporation</p>
+        <br>
     </footer>
 </body>
 </html>
