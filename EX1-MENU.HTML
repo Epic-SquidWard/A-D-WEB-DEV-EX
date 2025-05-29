@@ -29,7 +29,7 @@
             z-index: 1000;
             transition: transform 0.5s, opacity 0.5s;
             display: flex;
-            justify-content: flex-end; /* Align content to the right */
+            justify-content: flex-end;
             align-items: center;
             box-sizing: border-box;
             gap:24px;
@@ -114,66 +114,143 @@
             text-decoration: none;
         }
         main {
-            padding: 2rem;
             min-height: 60vh;
             flex: 1;
         }
+        main.MAIN {
+            padding: 12px 2vw 2rem 2vw;
+            min-height: 60vh;
+            flex: 1;
+            display: grid;
+            row-gap: 12px;
+            column-gap: 12px;
+            justify-items: center;
+            align-items: start;
+            justify-content: center;
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow-x: auto;
+            max-width: 98vw;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Match card size */
+        }
         .MENU-ITEM {
-
-            width: 80%;
-            height: 10%;
-            margin: 10px;
-            display: inline-block;
-            vertical-align: top;
-            border-radius: 30%;
-            border: 0px solid #ffffff;
-            transition: transform 0.3s ease;
+            max-width: 220px;      /* Fixed card width */
+            min-width: 180px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 16px;
+            background: #222;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-sizing: border-box;
+            border: none;
+            transition: 0.25s;
         }
         .MENU-ITEM:hover {
-            transform: scale(1.1);
-            transition: transform 0.3s ease;
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px #FFC72C55;
+            transition: 0.25s;
+        }
+        .MENU-ITEM img {
+            width: 100%;           /* Responsive image inside card */
+            aspect-ratio: 1/1;
+            object-fit: contain;
+            border-radius: 12px;
+            background: #fff;
+            border: 2px solid #393e46;
+            margin: 0;
+            display: block;
+            box-shadow: 0 4px 16px rgb(0, 0, 0); /* Stronger shadow */
+        }
+        /* Remove dark shadow and border from images in Featured items only */
+        .MENU-ITEM.Featured img {
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Restore shadow and border for McValue items */
+        .MENU-ITEM.McValue img {
+            box-shadow: 0 4px 16px rgb(0, 0, 0) !important;
+            border: 2px solid #393e46 !important;
         }
         .Featured {
             box-shadow: 0 0 20px #ffcc00, 0 0 20px #ffcc00;
-
-
+        }
+        @media (max-width: 900px) {
+            main.MAIN {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 16px;
+            }
+            .MENU-ITEM {
+                max-width: 160px;
+                padding: 8px 4px;
+            }
+            .MENU-ITEM img {
+                max-width: 120px;
+            }
+        }
+        @media (max-width: 600px) {
+            main.MAIN {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                padding: 90px 2vw 1rem 2vw;
+            }
+            .MENU-ITEM {
+                max-width: 98vw;
+                min-width: 0;
+                padding: 4px 2px;
+            }
+            .MENU-ITEM img {
+                max-width: 90vw;
+            }
+            .logo, .logo:hover, .logo.enlarged {
+                width: 60vw !important;
+                height: auto !important;
+                min-width: 120px;
+                max-width: 90vw;
+            }
+        }
+        .menu-top-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            position: relative;
+            margin-top: 100px;
+            margin-bottom: 8px;
+        }
+        .logo-link {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .logo-link a {
+            display: inline-block;
         }
         .logo {
-            height: 10%;
-            width: 10%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 0px;
-            transition: all 0.5s;
-        }
-        .logo:hover {
-            height: 25%;
-            width: 25%;
-            transition: all 0.5s;
-        }
-        .logo.enlarged {
-            height: 25%;
-            width: 25%;
-            transition: all 0.5s;
-        }
-        .menu-options {
-            width: 20%;
-            height: 50px;
-            margin: 20px auto;
-            display: block;
-            font-size: 16px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #fff;
-            color: #333;
-        }
-        img:not(.header-button .logo) {
-            width: 10%;
-            height: 10%;
             display: block;
             margin: 0 auto;
+            max-width: 220px;
+            width: 100%;
+            height: auto;
+        }
+        .logo.enlarged {
+            max-width: 220px;
+        }
+        .menu-options {
+            margin: 0 auto;
+            display: block;
+            font-size: 1.3rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: #fff;
+            color: #222;
+            font-weight: bold;
         }
     </style>
     <script>
@@ -182,167 +259,158 @@
         if (logo) {
             logo.classList.add('enlarged');
             setTimeout(() => logo.classList.remove('enlarged'), 1000); // 1 second
-    }
-});
+        }
+    });
     </script>
 </head>
 <body>
     <header class="HEADER">
-        <button class="header-button b-cart"><img src="icons/bag.png" alt="Cart" class="header-img cart"></button>
-        <button class="header-button b-profile"><img src="icons/account.png" alt="User" class="header-img profile"></button>
-        <button class="header-button b-menu"><img src="icons/menu.png" alt="Nav" class="header-img head-menu"></button>
+        <button class="header-button b-cart"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/bag.png" alt="Cart" class="header-img cart"></button>
+        <button class="header-button b-profile"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/account.png" alt="User" class="header-img profile"></button>
+        <button class="header-button b-menu"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/menu.png" alt="Nav" class="header-img head-menu"></button>
     </header>
-    <main class="MAIN">
-        <br>
-        <br>
-        <br>
-        <br>
-        <a href="EX1-HOME.HTML">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg" class="logo" alt="McDonald's Logo" width="10%" height="10%">
-        </a>
-        <br>
-        <br>
-        <br>
+    <div class="menu-top-bar">
+        <span class="logo-link">
+            <a href="EX1-HOME.HTML">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg" class="logo" alt="McDonald's Logo">
+            </a>
+        </span>
         <select id="menu-dropdown" class="menu-options">
-    <option value="default" selected disabled>-- Select a Menu --</option>
-    <option class="FEATURED" value="Featured">Featured</option>
-    <option class="VALUE" value="McValue">Mc Value</option>
-    <option class="SIDE McNuggets Fry" value="McNuggets-Fries">McNuggets & Fries</option>
-    <option class="BREAKFAST" value="breakfast">Breakfast</option>
-    <option class="BURGERS" value="burgers">Burgers</option>
-    <option class="DESSERTS" value="desserts">Desserts</option>
-    <option class="BEVERAGES" value="beverages">Beverages</option>
-    </select>
-    <br>
-    <div class="MENU-ITEM Burgers Featured">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0005-999_BigMac_1564x1564-1:nutrition-calculator-tile" id="Big-Mac">
-    </div><br>
-    <div class="MENU-ITEM Burgers">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-C">
-    </div><br>
-    <div class="MENU-ITEM Burgers">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_3426-005_DoubleQuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-W-C">
-    </div><br>
-    <div class="MENU-ITEM Burgers">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202309_4282_QuarterPounderCheeseDeluxe_Shredded_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-DEL">
-    </div><br>
-    <div class="MENU-ITEM Burgers">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0592-999_McDouble_Alt_1564x1564-1:nutrition-calculator-tile" id="McDouble">
-    </div><br>
-    <div class="MENU-ITEM Burgers">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_4295-005_BaconQPC_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-B-C">
-    </div><br>
-    <div class="MENU-ITEM Burgers">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0003-999_CheeseburgerAlt_1564x1564-1:nutrition-calculator-tile" id="Burger-W-C">
-    </div><br>
-    <div class="MENU-ITEM Burgers McValue">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0004-999_DoubleCheeseburger_Alt_McValue_1564x1564:nutrition-calculator-tile" id="DBL-Burger-W-C">
-    </div><br>
-    <div class="MENU-ITEM Burgers">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0001-999_Hamburger_Alt_1564x1564-1:nutrition-calculator-tile" id="HamBurger">
-    </div><br>
-    <br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202405_0085_BaconEggCheeseBiscuit_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Biscuit">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202004_0046_EggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="E-McMuffin">
-    </div><br>
-    <div class="MENU-ITEM Breakfast McValue">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0078_SausageMcMuffin_McValue_1564x1564:nutrition-calculator-tile" id="S-McMuffin">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0083_SausageEggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="S-McMuffin-W-E">
-    </div><br>
-    <div class="MENU-ITEM Breakfast McValue">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0062_SausageBiscuit_McValue_1564x1564:nutrition-calculator-tile" id="S-Biscut">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0092_SausageEggBiscuit_1564x1564-1:nutrition-calculator-tile" id="s-biscut-W-E">
-    </div><br>
-    <div class="MENU-ITEM Breakfast Featured">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201908_9839_BEC_McGriddle_1564x1564-1:nutrition-calculator-tile" id="B-E-C-McGriddle">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201911_6110_SausageMcGriddle_1564x1564-1:nutrition-calculator-tile" id="S-McGriddle">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_9841_SausageEggCheeseMcGriddle_1564x1564-2:nutrition-calculator-tile" id="S-E-C-McGriddle">
-    </div><br>
-    <div class="MENU-ITEM Breakfast Featured">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202103_1603_BaconEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Begel">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202403_1604_SausageEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="S-E-C-Bagel">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202410_4210_EggCheeseBagel_1564x1564:nutrition-calculator-tile" id="E-C-Bagel">
-    </div><br>
-    <div class="MENU-ITEM Breakfast">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201909_5428_PlainBagel_1564x1564-1:nutrition-calculator-tile" id="Bagel">
-    </div><br>
-    <br>
-    <div class="MENU-ITEM McNuggets-Fries">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202006_0483_4McNuggets_Stacked_1564x1564-1:nutrition-calculator-tile" id="4pc-nug">
-    </div><br>
-    <div class="MENU-ITEM McNuggets-Fries">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0060_6McNuggets_Broken_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="6pc-nug">
-    </div><br>
-    <div class="MENU-ITEM McNuggets-Fries">
-        <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202208_5280_10McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="10pc-nug">
-    </div><br>
-    <div class="MENU-ITEM McNuggets-Fries Featured">
-        <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202008_0061_20McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="20pc-nug">
-    </div><br>
-    <div class="MENU-ITEM McNuggets-Fries">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_6050_SmallFrenchFries_Standing_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fry">
-    </div><br>
-    <div class="MENU-ITEM McNuggets-Fries">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_8932_MediumFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fry">
-    </div><br>
-    <div class="MENU-ITEM McNuggets-Fries">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_6053_LargeFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fry">
-    </div><br>
-    <br>
-    <div class="MENU-ITEM Beverages">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fountain">
-    </div><br>
-    <div class="MENU-ITEM Beverages">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fountain">
-    </div><br>
-    <div class="MENU-ITEM Beverages">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fountain">
-    </div><br>
-    <div class="MENU-ITEM Desserts">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-McFlurry">
-    </div><br>
-    <div class="MENU-ITEM Desserts">
-        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-McFlurry">
-    </div><br>
+            <option value="DEFAULT" selected disabled>-- Select a Menu --</option>
+            <option class="FEATURED" value="Featured">Featured</option>
+            <option class="VALUE" value="McValue">Mc Value</option>
+            <option class="SIDE McNuggets Fry" value="McNuggets-Fries">McNuggets & Fries</option>
+            <option class="BREAKFAST" value="Breakfast">Breakfast</option>
+            <option class="BURGERS" value="Burgers">Burgers</option>
+            <option class="DESSERTS" value="Desserts">Desserts</option>
+            <option class="BEVERAGES" value="Beverages">Beverages</option>
+        </select>
+    </div>
+    <main class="MAIN">
+        <div class="MENU-ITEM Burgers Featured">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0005-999_BigMac_1564x1564-1:nutrition-calculator-tile" id="Big-Mac">
+        </div>
+        <div class="MENU-ITEM Burgers">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-C">
+        </div>
+        <div class="MENU-ITEM Burgers">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_3426-005_DoubleQuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-W-C">
+        </div>
+        <div class="MENU-ITEM Burgers">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202309_4282_QuarterPounderCheeseDeluxe_Shredded_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-DEL">
+        </div>
+        <div class="MENU-ITEM Burgers">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0592-999_McDouble_Alt_1564x1564-1:nutrition-calculator-tile" id="McDouble">
+        </div>
+        <div class="MENU-ITEM Burgers">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_4295-005_BaconQPC_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-B-C">
+        </div>
+        <div class="MENU-ITEM Burgers">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0003-999_CheeseburgerAlt_1564x1564-1:nutrition-calculator-tile" id="Burger-W-C">
+        </div>
+        <div class="MENU-ITEM Burgers McValue">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0004-999_DoubleCheeseburger_Alt_McValue_1564x1564:nutrition-calculator-tile" id="DBL-Burger-W-C">
+        </div>
+        <div class="MENU-ITEM Burgers">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0001-999_Hamburger_Alt_1564x1564-1:nutrition-calculator-tile" id="HamBurger">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202405_0085_BaconEggCheeseBiscuit_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Biscuit">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202004_0046_EggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="E-McMuffin">
+        </div>
+        <div class="MENU-ITEM Breakfast McValue">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0078_SausageMcMuffin_McValue_1564x1564:nutrition-calculator-tile" id="S-McMuffin">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0083_SausageEggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="S-McMuffin-W-E">
+        </div>
+        <div class="MENU-ITEM Breakfast McValue">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0062_SausageBiscuit_McValue_1564x1564:nutrition-calculator-tile" id="S-Biscut">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0092_SausageEggBiscuit_1564x1564-1:nutrition-calculator-tile" id="s-biscut-W-E">
+        </div>
+        <div class="MENU-ITEM Breakfast Featured">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201908_9839_BEC_McGriddle_1564x1564-1:nutrition-calculator-tile" id="B-E-C-McGriddle">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201911_6110_SausageMcGriddle_1564x1564-1:nutrition-calculator-tile" id="S-McGriddle">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_9841_SausageEggCheeseMcGriddle_1564x1564-2:nutrition-calculator-tile" id="S-E-C-McGriddle">
+        </div>
+        <div class="MENU-ITEM Breakfast Featured">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202103_1603_BaconEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Begel">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202403_1604_SausageEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="S-E-C-Bagel">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202410_4210_EggCheeseBagel_1564x1564:nutrition-calculator-tile" id="E-C-Bagel">
+        </div>
+        <div class="MENU-ITEM Breakfast">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201909_5428_PlainBagel_1564x1564-1:nutrition-calculator-tile" id="Bagel">
+        </div>
+        <div class="MENU-ITEM McNuggets-Fries">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202006_0483_4McNuggets_Stacked_1564x1564-1:nutrition-calculator-tile" id="4pc-nug">
+        </div>
+        <div class="MENU-ITEM McNuggets-Fries">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0060_6McNuggets_Broken_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="6pc-nug">
+        </div>
+        <div class="MENU-ITEM McNuggets-Fries">
+            <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202208_5280_10McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="10pc-nug">
+        </div>
+        <div class="MENU-ITEM McNuggets-Fries Featured">
+            <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202008_0061_20McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="20pc-nug">
+        </div>
+        <div class="MENU-ITEM McNuggets-Fries">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_6050_SmallFrenchFries_Standing_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fry">
+        </div>
+        <div class="MENU-ITEM McNuggets-Fries">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_8932_MediumFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fry">
+        </div>
+        <div class="MENU-ITEM McNuggets-Fries">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_6053_LargeFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fry">
+        </div>
+        <div class="MENU-ITEM Beverages">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fountain">
+        </div>
+        <div class="MENU-ITEM Beverages">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fountain">
+        </div>
+        <div class="MENU-ITEM Beverages">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fountain">
+        </div>
+        <div class="MENU-ITEM Desserts">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-McFlurry">
+        </div>
+        <div class="MENU-ITEM Desserts">
+            <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-McFlurry">
+        </div>
     </main>
     <script>
-document.getElementById('menu-dropdown').addEventListener('change', function() {
-    const selected = this.value;
-    const items = document.querySelectorAll('.MENU-ITEM');
-    items.forEach(img => {
-        // If "DEFAULT" is selected, show all
-        if (selected === "DEFAULT") {
-            img.style.display = '';
-        } else {
-            // Show if the image has the selected class
-            if (img.classList.contains(selected)) {
+    document.getElementById('menu-dropdown').addEventListener('change', function() {
+        const selected = this.value;
+        const items = document.querySelectorAll('.MENU-ITEM');
+        items.forEach(img => {
+            if (selected === "DEFAULT") {
                 img.style.display = '';
             } else {
-                img.style.display = 'none';
+                if (img.classList.contains(selected)) {
+                    img.style.display = '';
+                } else {
+                    img.style.display = 'none';
+                }
             }
-        }
+        });
     });
-});
-</script>
-<footer>
-    <p>&copy;A&D WEB DEVELOPMENT</p>
-    <p>All images used in this example were sorced from the &copy;McDonalds Corporation</p>
-    <p>This website has no relation to the McDonalds Corporation</p>
-</footer>
+    </script>
+    <footer>
+        <p>&copy;A&D WEB DEVELOPMENT</p>
+        <p>All images used in this example were sorced from the &copy;McDonalds Corporation</p>
+        <p>This website has no relation to the McDonalds Corporation</p>
+    </footer>
 </body>
 </html>
