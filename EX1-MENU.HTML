@@ -97,7 +97,7 @@
             width: 100%;
             padding: 1rem 0;
             margin: 0; 
-            background: #333;
+            background: #393e46;
             color: #fff;
             text-align: center;
             border: none;
@@ -119,8 +119,9 @@
             flex: 1;
         }
         .MENU-ITEM {
-            width: 20%;
-            height: 20%;
+
+            width: 80%;
+            height: 10%;
             margin: 10px;
             display: inline-block;
             vertical-align: top;
@@ -138,8 +139,8 @@
 
         }
         .logo {
-            height: 50%;
-            width: 50%;
+            height: 10%;
+            width: 10%;
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -147,13 +148,13 @@
             transition: all 0.5s;
         }
         .logo:hover {
-            height: 80%;
-            width: 80%;
+            height: 25%;
+            width: 25%;
             transition: all 0.5s;
         }
         .logo.enlarged {
-            height: 75%;
-            width: 75%;
+            height: 25%;
+            width: 25%;
             transition: all 0.5s;
         }
         .menu-options {
@@ -167,6 +168,12 @@
             border: none;
             background-color: #fff;
             color: #333;
+        }
+        img:not(.header-button .logo) {
+            width: 10%;
+            height: 10%;
+            display: block;
+            margin: 0 auto;
         }
     </style>
     <script>
@@ -207,80 +214,111 @@
     <option class="BEVERAGES" value="beverages">Beverages</option>
     </select>
     <br>
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0005-999_BigMac_1564x1564-1:nutrition-calculator-tile" id="Big-Mac" class="MENU-ITEM Burgers Featured">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-C" class="MENU-ITEM Burgers">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_3426-005_DoubleQuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-W-C" class="MENU-ITEM Burgers">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202309_4282_QuarterPounderCheeseDeluxe_Shredded_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-DEL" class="MENU-ITEM Burgers">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0592-999_McDouble_Alt_1564x1564-1:nutrition-calculator-tile" id="McDouble" class="MENU-ITEM Burgers">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_4295-005_BaconQPC_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-B-C" class="MENU-ITEM Burgers">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0003-999_CheeseburgerAlt_1564x1564-1:nutrition-calculator-tile" id="Burger-W-C" class="MENU-ITEM Burgers">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0004-999_DoubleCheeseburger_Alt_McValue_1564x1564:nutrition-calculator-tile" id="DBL-Burger-W-C" class="MENU-ITEM Burgers McValue">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0001-999_Hamburger_Alt_1564x1564-1:nutrition-calculator-tile" id="HamBurger" class="MENU-ITEM Burgers">
-    <div class=""></div>
+    <div class="MENU-ITEM Burgers Featured">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0005-999_BigMac_1564x1564-1:nutrition-calculator-tile" id="Big-Mac">
+    </div><br>
+    <div class="MENU-ITEM Burgers">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-C">
+    </div><br>
+    <div class="MENU-ITEM Burgers">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_3426-005_DoubleQuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-W-C">
+    </div><br>
+    <div class="MENU-ITEM Burgers">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202309_4282_QuarterPounderCheeseDeluxe_Shredded_1564x1564-1:nutrition-calculator-tile" id="Quarter-DBL-DEL">
+    </div><br>
+    <div class="MENU-ITEM Burgers">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0592-999_McDouble_Alt_1564x1564-1:nutrition-calculator-tile" id="McDouble">
+    </div><br>
+    <div class="MENU-ITEM Burgers">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_4295-005_BaconQPC_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-B-C">
+    </div><br>
+    <div class="MENU-ITEM Burgers">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0003-999_CheeseburgerAlt_1564x1564-1:nutrition-calculator-tile" id="Burger-W-C">
+    </div><br>
+    <div class="MENU-ITEM Burgers McValue">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0004-999_DoubleCheeseburger_Alt_McValue_1564x1564:nutrition-calculator-tile" id="DBL-Burger-W-C">
+    </div><br>
+    <div class="MENU-ITEM Burgers">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0001-999_Hamburger_Alt_1564x1564-1:nutrition-calculator-tile" id="HamBurger">
+    </div><br>
     <br>
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202405_0085_BaconEggCheeseBiscuit_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Biscuit" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202004_0046_EggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="E-McMuffin" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0078_SausageMcMuffin_McValue_1564x1564:nutrition-calculator-tile" id="S-McMuffin" class="MENU-ITEM Breakfast McValue">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0083_SausageEggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="S-McMuffin-W-E" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0062_SausageBiscuit_McValue_1564x1564:nutrition-calculator-tile" id="S-Biscut" class="MENU-ITEM Breakfast McValue">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0092_SausageEggBiscuit_1564x1564-1:nutrition-calculator-tile" id="s-biscut-W-E" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201908_9839_BEC_McGriddle_1564x1564-1:nutrition-calculator-tile" id="B-E-C-McGriddle" class="MENU-ITEM Breakfast Featured">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201911_6110_SausageMcGriddle_1564x1564-1:nutrition-calculator-tile" id="S-McGriddle" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_9841_SausageEggCheeseMcGriddle_1564x1564-2:nutrition-calculator-tile" id="S-E-C-McGriddle" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202103_1603_BaconEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Begel" class="MENU-ITEM Breakfast Featured">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202403_1604_SausageEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="S-E-C-Bagel" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202410_4210_EggCheeseBagel_1564x1564:nutrition-calculator-tile" id="E-C-Bagel" class="MENU-ITEM Breakfast">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201909_5428_PlainBagel_1564x1564-1:nutrition-calculator-tile" id="Bagel" class="MENU-ITEM Breakfast">
-    <div class=""></div>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202405_0085_BaconEggCheeseBiscuit_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Biscuit">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202004_0046_EggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="E-McMuffin">
+    </div><br>
+    <div class="MENU-ITEM Breakfast McValue">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0078_SausageMcMuffin_McValue_1564x1564:nutrition-calculator-tile" id="S-McMuffin">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0083_SausageEggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="S-McMuffin-W-E">
+    </div><br>
+    <div class="MENU-ITEM Breakfast McValue">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0062_SausageBiscuit_McValue_1564x1564:nutrition-calculator-tile" id="S-Biscut">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0092_SausageEggBiscuit_1564x1564-1:nutrition-calculator-tile" id="s-biscut-W-E">
+    </div><br>
+    <div class="MENU-ITEM Breakfast Featured">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201908_9839_BEC_McGriddle_1564x1564-1:nutrition-calculator-tile" id="B-E-C-McGriddle">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201911_6110_SausageMcGriddle_1564x1564-1:nutrition-calculator-tile" id="S-McGriddle">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_9841_SausageEggCheeseMcGriddle_1564x1564-2:nutrition-calculator-tile" id="S-E-C-McGriddle">
+    </div><br>
+    <div class="MENU-ITEM Breakfast Featured">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202103_1603_BaconEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Begel">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202403_1604_SausageEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="S-E-C-Bagel">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202410_4210_EggCheeseBagel_1564x1564:nutrition-calculator-tile" id="E-C-Bagel">
+    </div><br>
+    <div class="MENU-ITEM Breakfast">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201909_5428_PlainBagel_1564x1564-1:nutrition-calculator-tile" id="Bagel">
+    </div><br>
     <br>
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202006_0483_4McNuggets_Stacked_1564x1564-1:nutrition-calculator-tile" id="4pc-nug" class="MENU-ITEM McNuggets-Fries">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0060_6McNuggets_Broken_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="6pc-nug" class="MENU-ITEM McNuggets-Fries">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202208_5280_10McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="10pc-nug" class="MENU-ITEM McNuggets-Fries">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202008_0061_20McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="20pc-nug" class="MENU-ITEM McNuggets-Fries Featured">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_6050_SmallFrenchFries_Standing_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fry" class="MENU-ITEM McNuggets-Fries">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_8932_MediumFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fry" class="MENU-ITEM McNuggets-Fries">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_6053_LargeFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fry" class="MENU-ITEM McNuggets-Fries">
-    <div class=""></div>
+    <div class="MENU-ITEM McNuggets-Fries">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202006_0483_4McNuggets_Stacked_1564x1564-1:nutrition-calculator-tile" id="4pc-nug">
+    </div><br>
+    <div class="MENU-ITEM McNuggets-Fries">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0060_6McNuggets_Broken_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="6pc-nug">
+    </div><br>
+    <div class="MENU-ITEM McNuggets-Fries">
+        <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202208_5280_10McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="10pc-nug">
+    </div><br>
+    <div class="MENU-ITEM McNuggets-Fries Featured">
+        <img src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202008_0061_20McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="20pc-nug">
+    </div><br>
+    <div class="MENU-ITEM McNuggets-Fries">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_6050_SmallFrenchFries_Standing_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fry">
+    </div><br>
+    <div class="MENU-ITEM McNuggets-Fries">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_8932_MediumFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fry">
+    </div><br>
+    <div class="MENU-ITEM McNuggets-Fries">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_6053_LargeFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fry">
+    </div><br>
     <br>
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fountain" class="MENU-ITEM Beverages">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fountain" class="MENU-ITEM Beverages">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fountain" class="MENU-ITEM Beverages">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-McFlurry" class="MENU-ITEM Desserts">
-    <div class=""></div>
-    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-McFlurry" class="MENU-ITEM Desserts">
+    <div class="MENU-ITEM Beverages">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fountain">
+    </div><br>
+    <div class="MENU-ITEM Beverages">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fountain">
+    </div><br>
+    <div class="MENU-ITEM Beverages">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fountain">
+    </div><br>
+    <div class="MENU-ITEM Desserts">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-McFlurry">
+    </div><br>
+    <div class="MENU-ITEM Desserts">
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-McFlurry">
+    </div><br>
     </main>
     <script>
 document.getElementById('menu-dropdown').addEventListener('change', function() {
