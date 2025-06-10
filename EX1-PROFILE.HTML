@@ -133,9 +133,25 @@
             justify-content: center;
             align-items: center;
         }
-        .logo:hover {
-            height: 100%;
-            width: 100%;
+        .qr {
+            height: 18%;
+            min-width: 180px;
+            width: 18%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 0px;
+            transition: all 0.5s;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8%;
+        }
+        .qr:hover {
+            box-shadow: 0 0 20px 20px #EEEEEE;
+            border-radius: 6%;
+            height: 18%;
+            min-width: 200px;
+            width: 18%;
             transition: all 0.5s;
         }
     </style>
@@ -144,11 +160,6 @@
     </script>
 </head>
 <body>
-    <header class="HEADER">
-        <button class="header-button b-cart"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/bag.png" alt="Cart" class="header-img cart"></button>
-        <button class="header-button b-profile"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/account.png" alt="User" class="header-img profile"></button>
-        <button class="header-button b-menu"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/menu.png" alt="Nav" class="header-img head-menu"></button>
-    </header>
     <main id="main">
         <div>
             <br>
@@ -157,19 +168,18 @@
             <br>
             <br>
             <br>
-            <a href="EX1-HOME.HTML">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg" class="logo" alt="McDonald's Logo">
-        </a>
+            <img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/account.png" class="logo" alt="McDonald's Logo">
         </div>
-
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        <img src="c:\Users\alece\Downloads\Alec_Echelbarger.png" class="qr" alt="QR Code">
 
 </main>
     <footer>
-        <br>
-        <p class="foot-text">&copy;A&D WEB DEVELOPMENT</p>
-        <p class="foot-text">All images used in this example were sorced from the &copy;McDonalds Corporation</p>
-        <p class="foot-text">This website has no relation to the McDonalds Corporation</p>
-        <br>
     </footer>
 </body>
 </html>
