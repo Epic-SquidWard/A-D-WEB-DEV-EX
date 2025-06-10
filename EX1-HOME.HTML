@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCDONAlDS PARODY WEBSITE</title>
+    <title>HOME</title>
     <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg">
     <style>
         body, button, input, p, h1, h2, h3 {
@@ -16,7 +16,7 @@
         }
         html, body {
         height: 100%;
-        background-color: #393e46;
+        background-color: #636e72;
         }
         body {
             font-family: sans-serif;
@@ -63,7 +63,7 @@
             font-weight: bold;
             height: 55px;
             width: 55px;
-            box-shadow: 0 0 6px 6px #FFC72C;
+            box-shadow: 0 0 10px 10px #FFC72C;
             border-radius: 100px;
         }
         .b-menu:hover {
@@ -213,17 +213,17 @@
         }
         
         main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: linear-gradient(-45deg, #393e46, #222831, #FFC72C, #393e46, #393e46);
-            background-size: 400% 400%;
-            animation: gradientFlow 2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(-45deg, #393e46, #222831, #FFC72C, #393e46, #393e46);
+    background-size: 400% 400%;
+    animation: gradientFlow 1.5s;
         }
         @keyframes gradientFlow {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 0%;}
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 0%;}
         }
         .logo {
             height: 60%;
@@ -233,8 +233,6 @@
             margin-right: auto;
             border-radius: 0px;
             transition: all 0.5s;
-            justify-content: center;
-            align-items: center;
         }
         .logo:hover {
             height: 100%;
@@ -242,9 +240,9 @@
             transition: all 0.5s;
         }
         .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
         }
         .flip-card {
             background-color: transparent;
@@ -313,9 +311,9 @@
 </head>
 <body>
     <header class="HEADER">
-        <button class="header-button b-cart"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/bag.png" alt="Cart" class="header-img cart"></button>
-        <button class="header-button b-profile"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/account.png" alt="User" class="header-img profile"></button>
-        <button class="header-button b-menu"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/menu.png" alt="Nav" class="header-img head-menu"></button>
+        <button class="header-button b-cart"><img src="icons/bag.png" alt="Cart" class="header-img cart"></button>
+        <button class="header-button b-profile"><img src="icons/account.png" alt="User" class="header-img profile"></button>
+        <button class="header-button b-menu"><img src="icons/menu.png" alt="Nav" class="header-img head-menu"></button>
     </header>
     <main id="main">
         <div>
@@ -332,13 +330,13 @@
             <br>
         <div class="BUTTONS-CONTAINER">
         <a href="EX1-MENU.HTML">
-            <button id="MENU" class="HEADER-BUTTONS">ORDER NOW</button>
+            <button id="MENU" class="HEADER-BUTTONS">MENU</button>
         </a>
         <a href="EX1-REWARDS.HTML">
             <button id="REWARDS" class="HEADER-BUTTONS">REWARDS</button>
             </a>
-            <a href="">
-            <button id="CAREERS" class="HEADER-BUTTONS">SUBSCRIBE</button>
+            <a href="EX1-CAREERS.HTML">
+            <button id="CAREERS" class="HEADER-BUTTONS">CAREERS</button>
             </a>
         </div>
         <br>
