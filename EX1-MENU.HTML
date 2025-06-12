@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MCDONALDS MENU</title>
+    <title>Menu Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg">
     <style>
@@ -57,7 +57,7 @@
             font-weight: bold;
             height: 55px;
             width: 55px;
-            box-shadow: 0 0 6px 6px #FFC72C;
+            box-shadow: 0 0 8px 8px #FFC72C;
             border-radius: 100px;
         }
         .b-menu:hover {
@@ -112,9 +112,11 @@
             text-decoration: none;
         }
        .MAIN:not(.MENU-ITEM) {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 80px;
         }
         .MENU-ITEM:not(.item-img):not(.costom):not(.select-B) {
@@ -137,7 +139,7 @@
             box-sizing: border-box;
             transition: 0.5s;
             box-shadow: 0 0 4px 4px #EEEEEE;
-            margin: 5vh auto; /* centers the item */
+            margin: 1vh auto; /* centers the item */
         }
         .MENU-ITEM:hover {
             transform: scale(1.05);
@@ -147,8 +149,8 @@
         .MENU-ITEM img {
             align-items: center; /* centers vertically */
             margin-left: 5vh !important;
-            width: 25vh;
-            height: 25vh;
+            width: 20vh;
+            height: 20vh;
             aspect-ratio: 1/1;
             border-radius: 50px;
             background: #fff;
@@ -164,6 +166,10 @@
             transition: 1s;
         }
         .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             display: flex;
             margin: 0 auto;
             max-width: 160px;
@@ -185,6 +191,10 @@
             transition: 0.5s;
         }
         .menu-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 30%;
             text-align: center;
             margin: 0 auto;
@@ -221,7 +231,7 @@
         .costom {
             margin-right: 5vh !important;
             margin-left: 60%;
-            width: 32% !important;
+            width: 160px !important;
             height: auto;
             background-color: #FFC72C;
             color: #393e46;
@@ -262,13 +272,22 @@
             box-shadow: 0 0 10px 2px #FFC72C;
             transition : 0.5s;
         }
+        .profile {
+            border-radius: 0px !important;
+        }
     </style>
 </head>
 <body>
     <header class="HEADER">
+        <a href="EX1-CART.HTML">
         <button class="header-button b-cart"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/bag.png" alt="Cart" class="header-img cart"></button>
-        <button class="header-button b-profile"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/account.png" alt="User" class="header-img profile"></button>
-        <button class="header-button b-menu"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/menu.png" alt="Nav" class="header-img head-menu"></button>
+        </a>
+        <a href="EX1-PROFILE.HTML">
+        <button class="header-button b-profile"><img src="c:\Users\stuar\Downloads\qr-code.png" alt="User" class="header-img profile"></button>
+        </a>
+        <a href="EX1-HOME.HTML">
+            <button class="header-button b-menu"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/home.png" alt="Nav" class="header-img head-menu"></button> 
+        </a>
     </header>
     <br><br><br><br><br>
     <main class="MAIN">
@@ -288,213 +307,250 @@
     </main>
     <style>
     /* Add this CSS to make buttons inline with the image */
-    .MENU-ITEM {
+    .MENU-ITEM:not(.item-img){
         flex-direction: row !important;
         align-items: center !important;
-        gap: 32px;
-        padding: 24px 0;
+        min-width: 680px;
+        padding: 3% 0;
         justify-content: center !important;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .MENU-ITEM .item-img {
-        margin-right: 32px;
+    .item-img {
+        margin-right: 4% !important;
     }
-
-    .MENU-ITEM > .item-img,
+    .MENU-ITEM {
+        margin: 10%;
+        margin-bottom: 2.5% !important;
+        padding-left: 5%;
+    }
     .MENU-ITEM > .costom,
     .MENU-ITEM > .select-B {
         margin: 0;
     }
 
-    .MENU-ITEM > .item-name {
-        min-width: 180px;
-        margin-right: 32px;
-        text-align: center;
-        width: 60%;
-        display: block;
+    .MENU-ITEM > .item-img {
+    margin: 0 !important;
     }
 
+    .MENU-ITEM > .item-img {
+        margin-left: 4% !important;
+        margin-right: 4% !important;
+    }
+
+    .MENU-ITEM > .item-name {
+        margin-right: 3%;
+        text-align: center;
+        width: auto;
+        display: block;
+    }
+    .MAIN {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 1200px;
+        width: 100%;
+    }
     .MENU-ITEM > .costom,
     .MENU-ITEM > .select-B {
-        margin-left: 0;
+        margin-left: 0px;
         margin-bottom: 0;
     }
+    @media (max-width: 700px) {
+  .MENU-ITEM {
+    flex-direction: column !important;
+    align-items: center !important;
+    min-width: unset !important;
+    padding: 5% 0;
+  }
+  .item-img {
+    margin: 0 !important;
+  }
+  .item-name {
+    margin: 10px 0 !important;
+  }
+  .costom,
+  .select-B {
+    margin: 10px 0 0 0 !important;
+    width: 80% !important;
+    max-width: 300px;
+  }
+}
     </style>
+    <script>
+document.querySelectorAll('.select-B').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Get the entire MENU-ITEM div's HTML
+        const itemDiv = btn.closest('.MENU-ITEM');
+        const itemHTML = itemDiv.outerHTML;
+        // Save to localStorage
+        localStorage.setItem('profileMenuItem', itemHTML);
+        // Redirect to profile page
+        window.location.href = 'EX1-PROFILE.HTML';
+    });
+});
+</script>
     <br><br><br>
     <h1 style="font-family: Georgia; font-weight: bold;" class="h1 Burgers">Classic Burgers</h1>
-    <div class="MENU-ITEM Burgers Featured">
+    <div class="MENU-ITEM Burgers Featured" id="Big-Mac-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0005-999_BigMac_1564x1564-1:nutrition-calculator-tile" id="Big-Mac">
-        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Big Mac</h2>
+        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">BigMac</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="Big-Mac-1">Select</button>
     </div>
-    <div class="MENU-ITEM Burgers">
+    <div class="MENU-ITEM Burgers" id="Quarter-W-C-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-C">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Quarter Pounder With Cheese</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="Quarter-W-C-1" >Select</button>
     </div>
-    <div class="MENU-ITEM Burgers">
+    <div class="MENU-ITEM Burgers" id="McDouble-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0592-999_McDouble_Alt_1564x1564-1:nutrition-calculator-tile" id="McDouble">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">McDouble</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="McDouble-1">Select</button>
     </div>
-    <div class="MENU-ITEM Burgers">
+    <div class="MENU-ITEM Burgers" id="Burger-W-C-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0003-999_CheeseburgerAlt_1564x1564-1:nutrition-calculator-tile" id="Burger-W-C">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Cheese Burger</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="Burger-W-C-1">Select</button>
     </div>
-    <div class="MENU-ITEM Burgers McValue">
+    <div class="MENU-ITEM Burgers McValue" id="DBL-Burger-W-C-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0004-999_DoubleCheeseburger_Alt_McValue_1564x1564:nutrition-calculator-tile" id="DBL-Burger-W-C">
-        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Double CheeseBurger</h2>
+        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Double Cheese Burger</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
-    </div>
-    <div class="MENU-ITEM Burgers">
-        <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0001-999_Hamburger_Alt_1564x1564-1:nutrition-calculator-tile" id="HamBurger">
-        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">HamBurger</h2>
-        <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="DBL-Burger-W-C-1">Select</button>
     </div>
     <h1 style="font-family: Georgia; font-weight: bold;" class="h1 Breakfast">Breakfast</h1>
-    <div class="MENU-ITEM Breakfast Featured">
+    <div class="MENU-ITEM Breakfast Featured" id="B-E-C-Bagel-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202103_1603_BaconEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Bagel">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Bacon Egg & Cheese Bagel</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="B-E-C-Bagel-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast Featured">
+    <div class="MENU-ITEM Breakfast Featured" id="B-E-C-McGriddle-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201908_9839_BEC_McGriddle_1564x1564-1:nutrition-calculator-tile" id="B-E-C-McGriddle">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Bacon Egg & Cheese McGriddle</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="B-E-C-McGriddle-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast">
+    <div class="MENU-ITEM Breakfast" id="B-E-C-Biscuit-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202405_0085_BaconEggCheeseBiscuit_1564x1564-1:nutrition-calculator-tile" id="B-E-C-Biscuit">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Bacon Egg & Cheese Biscuit</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="B-E-C-Biscuit-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast">
+    <div class="MENU-ITEM Breakfast" id="E-McMuffin-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202004_0046_EggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="E-McMuffin">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Egg McMuffin</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="E-McMuffin-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast McValue">
+    <div class="MENU-ITEM Breakfast McValue" id="S-McMuffin-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0078_SausageMcMuffin_McValue_1564x1564:nutrition-calculator-tile" id="S-McMuffin">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Sausage McMuffin</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="S-McMuffin-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast">
+    <div class="MENU-ITEM Breakfast" id="S-McMuffin-W-E-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0083_SausageEggMcMuffin_1564x1564-1:nutrition-calculator-tile" id="S-McMuffin-W-E">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Sausage McMuffin With Egg</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="S-McMuffin-W-E-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast McValue">
+    <div class="MENU-ITEM Breakfast McValue" id="S-Biscut-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0062_SausageBiscuit_McValue_1564x1564:nutrition-calculator-tile" id="S-Biscut">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Sausage Biscut</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="S-Biscut-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast">
+    <div class="MENU-ITEM Breakfast" id="S-biscut-W-E-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0092_SausageEggBiscuit_1564x1564-1:nutrition-calculator-tile" id="S-biscut-W-E">
-        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">sausage biscut With Egg</h2>
+        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Sausage & Egg biscut</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="S-biscut-W-E-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast">
+    <div class="MENU-ITEM Breakfast" id="S-McGriddle-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201911_6110_SausageMcGriddle_1564x1564-1:nutrition-calculator-tile" id="S-McGriddle">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Sausage McGriddle</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="S-McGriddle-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast">
+    <div class="MENU-ITEM Breakfast" id="S-E-C-McGriddle-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_9841_SausageEggCheeseMcGriddle_1564x1564-2:nutrition-calculator-tile" id="S-E-C-McGriddle">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Sausage Egg Cheese McGriddle</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="S-E-C-McGriddle-1">Select</button>
     </div>
-    <div class="MENU-ITEM Breakfast">
+    <div class="MENU-ITEM Breakfast" id="S-E-C-Bagel-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202403_1604_SausageEggCheeseBagel_1564x1564-1:nutrition-calculator-tile" id="S-E-C-Bagel">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Sausage Egg Cheese Bagel</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
-    </div>
-    <div class="MENU-ITEM Breakfast">
-        <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_201909_5428_PlainBagel_1564x1564-1:nutrition-calculator-tile" id="Bagel">
-        <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Bagel</h2>
-        <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="S-E-C-Bagel-1">Select</button>
     </div>
     <h1  style="font-family: Georgia; font-weight: bold;" class="h1 McNuggets-Fries">McNuggets & Fries</h1>
-    <div class="MENU-ITEM McNuggets-Fries Featured">
+    <div class="MENU-ITEM McNuggets-Fries Featured" id="20pc-nug-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202008_0061_20McNuggets_Stacked_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="20pc-nug">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">20pc McNuggets</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="20pc-nug-1">Select</button>
     </div>
-    <div class="MENU-ITEM McNuggets-Fries">
+    <div class="MENU-ITEM McNuggets-Fries" id="4pc-nug-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202006_0483_4McNuggets_Stacked_1564x1564-1:nutrition-calculator-tile" id="4pc-nug">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">4pc McNuggets</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="4pc-nug-1">Select</button>
     </div>
-    <div class="MENU-ITEM McNuggets-Fries">
+    <div class="MENU-ITEM McNuggets-Fries" id="6pc-nug-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_0060_6McNuggets_Broken_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="6pc-nug">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">6pc McNuggets</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="6pc-nug-1">Select</button>
     </div>
-    <div class="MENU-ITEM McNuggets-Fries">
+    <div class="MENU-ITEM McNuggets-Fries" id="SM-Fry-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202411_6050_SmallFrenchFries_Standing_McValue_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fry">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Small Fry</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="SM-Fry-1">Select</button>
     </div>
-    <div class="MENU-ITEM McNuggets-Fries">
+    <div class="MENU-ITEM McNuggets-Fries" id="MD-Fry-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_8932_MediumFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fry">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Medium Fry</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="MD-Fry-1">Select</button>
     </div>
-    <div class="MENU-ITEM McNuggets-Fries">
+    <div class="MENU-ITEM McNuggets-Fries" id="LG-Fry-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_6053_LargeFries_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fry">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Large Fry</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="LG-Fry-1">Select</button>
     </div>
     <h1 style="font-family: Georgia; font-weight: bold;" class="h1 Beverages">Beverages</h1>
-    <div class="MENU-ITEM Beverages">
+    <div class="MENU-ITEM Beverages" id="SM-Fountain-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-Fountain">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Small Fountain</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="SM-Fountain-1">Select</button>
     </div>
-    <div class="MENU-ITEM Beverages">
+    <div class="MENU-ITEM Beverages" id="MD-Fountain-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="MD-Fountain">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Medium Fountain</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="MD-Fountain-1">Select</button>
     </div>
-    <div class="MENU-ITEM Beverages">
+    <div class="MENU-ITEM Beverages" id="LG-Fountain-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202402_0521_MediumCoke_ContourGlassv1_1564x1564:product-header-desktop?wid=1564&hei=1564&dpr=off" id="LG-Fountain">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Large Fountain</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="LG-Fountain-1">Select</button>
     </div>
     <h1 style="font-family: Georgia; font-weight: bold;" class="h1 Desserts">Desserts</h1>
-    <div class="MENU-ITEM Desserts">
+    <div class="MENU-ITEM Desserts" id="SM-McFlurry-1">
         <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202002_3830_MandMMcFlurry_1564x1564-1:product-header-desktop?wid=1564&hei=1564&dpr=off" id="SM-McFlurry">
         <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">McFlurry</h2>
         <button class="costom" id="costom" style="font-family: Georgia; font-weight: bold;">Customize</button>
-        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;">Select</button>
+        <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="SM-McFlurry-1">Select</button>
     </div>
     </main>
     <script>
@@ -502,16 +558,16 @@
         const selected = this.value;
         const items = document.querySelectorAll('.MENU-ITEM');
         const headings = document.querySelectorAll('h1.h1');
-        items.forEach(img => {
-            if (selected === "DEFAULT") {
+    items.forEach(img => {
+        if (selected === "DEFAULT") {
+            img.style.display = '';
+        } else {
+            if (img.classList.contains(selected)) {
                 img.style.display = '';
             } else {
-                if (img.classList.contains(selected)) {
-                    img.style.display = '';
-                } else {
-                    img.style.display = 'none';
-                }
+                img.style.display = 'none';
             }
+        }
     });
 
     headings.forEach(h1 => {
