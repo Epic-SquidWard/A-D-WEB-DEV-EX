@@ -191,21 +191,6 @@
             justify-content: center; /* Align buttons horizontally */
             gap: 10px;
         }
-        img:not(.logo, .header-img) {
-             height: 100%;
-             width: 100%;
-             border-radius: 5px;
-             box-shadow: 0 0 10px 8px #f8f8f6;
-             transition: all 0.5s;
-             display: block;
-             margin-left: auto;
-             margin-right: auto;
-        }
-        img:not(.logo, .header-img):hover {
-            box-shadow: 0 0 20px 12px #f8f8f6;
-            transition: all 0.5s;
-
-        }
         .foot-text{
             color: #ecf0f1;
             font-size: 14px;
@@ -242,14 +227,19 @@
             transition: all 0.5s;
         }
         .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
+            width: 60vw;
+            height: 40vh;
+            max-width: 100vw;
+            max-height: 100vh;
+            gap: 1000px !important;
+        }
+        .flip-card-inner {
+            border-radius: 100px !important;
         }
         .flip-card {
             background-color: transparent;
-            width: 600px;
-            height: 400px;
+            width: 60vw;
+            height: 40vh;
             perspective: 1000px;
             margin: 0 auto 40px auto;
             display: flex;
@@ -259,24 +249,27 @@
 
         .flip-card-inner {
             position: relative;
-            width: 600px;
-            height: 400px;
+            width: 60vw;
+            height: 40vh;
             transition: transform 1.5s cubic-bezier(.4,2,.6,1);
             transform-style: preserve-3d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
-            box-shadow: 10px 8px 10px 8px #f8f8f6;
+            box-shadow: none;
         }
 
         .flip-card-front, .flip-card-back {
             position: absolute;
-            width: 600px;
-            height: 400px;
+            width: 60vw;
+            height: 40vh;
             backface-visibility: hidden;
             border-radius: 10px;
-            box-shadow: 0 0 10px 8px #f8f8f6;
+            box-shadow: none;
             color: #222831;
             display: flex;
             justify-content: center;
@@ -286,25 +279,37 @@
         .flip-card-front img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 10px;
         }
 
         .flip-card-back {
+            width: 60vw;
+            height: 40vh;
             background: #ecf0f1;
             color: #222831;
             transform: rotateY(180deg);
             flex-direction: column;
             padding: 20px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         h2 {
             color: #222831;
-            margin-bottom: 10px;}
+            margin-bottom: 10px;
+        }
         p {
             color: #222831;
             font-size: 16px;
             font-weight: bold
+        }
+        .cont {
+            border-radius: 100px !important;
+            width: 100%;
+            height: 100%;
+           
         }
     </style>
     <script>
@@ -312,17 +317,7 @@
     </script>
 </head>
 <body>
-    <header class="HEADER">
-        <a href="EX1-CART.HTML">
-        <button class="header-button b-cart"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/bag.png" alt="Cart" class="header-img cart"></button>
-        </a>
-        <a href="EX1-PROFILE.HTML">
-            <button class="header-button b-profile"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/icons/account.png" alt="User" class="header-img profile"></button>
-        </a>
-        <a href="EX1-MENU.HTML">
-            <button class="header-button b-menu"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/home.png" alt="Nav" class="header-img head-menu"></button> 
-        </a>
-    </header>
+
     <main id="main">
         <div>
             <br>
@@ -349,10 +344,6 @@
         </div>
         <br>
         <br>
-        <div class="LOCATION-DIV">
-            <input id="LOCO.TEXT" placeholder="ENTER ZIP CODE"></input>
-            <button id="LOCATION" class="LOCATION" width="200px">LOCATIONS NEAR YOU</button>
-        </div>
         <br>
         <br>
         <br>
@@ -360,7 +351,7 @@
         <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="https://s7d1.scene7.com/is/image/mcdonalds/McCrispyStrip_COM_1Pub_r1:1-column-desktop?resmode=sharp2" alt="McCrispy Strips">
+      <img class="cont" src="https://s7d1.scene7.com/is/image/mcdonalds/McCrispyStrip_COM_1Pub_r1:1-column-desktop?resmode=sharp2" alt="McCrispy Strips">
     </div>
     <div class="flip-card-back">
       <div class="flip-text">
@@ -370,14 +361,10 @@
     </div>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="https://s7d1.scene7.com/is/image/mcdonalds/COM_1PUB_DownloadIncentive_FreeBigMac:publication-column-mobile?resmode=sharp2" alt="Free Big Mac">
+      <img class="cont" src="https://s7d1.scene7.com/is/image/mcdonalds/COM_1PUB_DownloadIncentive_FreeBigMac:publication-column-mobile?resmode=sharp2" alt="Free Big Mac">
     </div>
     <div class="flip-card-back">
       <div class="flip-text">
@@ -387,14 +374,10 @@
     </div>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="https://s7d1.scene7.com/is/image/mcdonalds/1PUB_Breakfast_2336x1040:1-column-desktop?resmode=sharp2" alt="McValue Intro">
+      <img class="cont" src="https://s7d1.scene7.com/is/image/mcdonalds/1PUB_Breakfast_2336x1040:1-column-desktop?resmode=sharp2" alt="McValue Intro">
     </div>
     <div class="flip-card-back">
       <div class="flip-text">
@@ -405,10 +388,6 @@
     </div>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
 </main>
     <footer>
         <br>

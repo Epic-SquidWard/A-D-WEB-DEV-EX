@@ -60,6 +60,9 @@
             box-shadow: 0 0 8px 8px #FFC72C;
             border-radius: 100px;
         }
+        .b-menu {
+            border-radius: 5px;
+        }
         .b-menu:hover {
             color: #0b0d0f;
             background-color: #FFC72C;
@@ -69,6 +72,7 @@
             width: 55px;
             box-shadow: 0 0 6px 6px #FFC72C;
             border-radius: 5px;
+            transition: all 0.5s;
         }
         .header-img:not(.head-menu) {
             border-radius: 50px;
@@ -296,11 +300,9 @@
             <button class="header-button b-menu"><img src="https://raw.githubusercontent.com/Epic-SquidWard/A-D-WEB-DEV-EX/refs/heads/main/home.png" alt="Nav" class="header-img head-menu"></button> 
         </a>
     </header>
-    <br><br><br><br><br>
+    <br><br><br>
     <main class="MAIN">
-        <a href="EX1-HOME.HTML">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg" class="logo" alt="McDonald's Logo">
-        </a>
         <select id="menu-dropdown" class="menu-options">
             <option value="DEFAULT">MENU</option>
             <option class="BURGERS" value="Burgers">Burgers</option>
@@ -394,10 +396,6 @@
         margin-bottom: 0;
     }
     </style>
-    <br><br><br>
-    <div id="selected-popup" style="display:none;position:fixed;top:30%;left:50%;transform:translate(-50%,-50%);background:#FFC72C;color:#393e46;font-size:2rem;font-weight:bold;padding:32px 48px;border-radius:16px;box-shadow:0 0 16px #393e46;z-index:9999;text-align:center;">
-        SELECTED
-    </div>
     <style>
     .row {
         display: flex;
@@ -456,26 +454,11 @@
             flex-wrap: wrap;
         }
     </style>
-    <script>
-document.querySelectorAll('.select-B').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        // Get the entire MENU-ITEM div's HTML
-        const itemDiv = btn.closest('.MENU-ITEM');
-        const itemHTML = itemDiv.outerHTML;
-        // Save to localStorage
-        localStorage.setItem('profileMenuItem', itemHTML);
-
-        // Show popup
-        const popup = document.getElementById('selected-popup');
-        popup.style.display = 'block';
-        setTimeout(() => {
-            popup.style.display = 'none';
-            // Redirect after popup hides
-            window.location.href = 'EX1-PROFILE.HTML';
-        }, 1000);
-    });
-});
-</script>
+    <div id="cart" class="cart-open" onclick="closeModal(event)">
+        <div class="cart-content">
+            <!-- You can add content here -->
+        </div>
+    </div>
     <h1 style="font-family: Georgia; font-weight: bold;" class="h1 Burgers">Classic Burgers</h1>
     <div class="row Burgers">
         <div class="MENU-ITEM Burgers Featured" id="Big-Mac-1">
