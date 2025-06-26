@@ -883,12 +883,6 @@ function openCustomizeModal(itemName) {
   modal.style.display = 'flex';
 }
 
-// Example images for items
-const menuImages = {
-  "BigMac": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0005-999_BigMac_1564x1564-1:nutrition-calculator-tile"
-  // ...other items
-};
-
 document.getElementById('addToCartBtn').onclick = function() {
   const form = document.getElementById('customize-form');
   const itemName = document.getElementById('customize-title').textContent.replace('Customize ', '');
