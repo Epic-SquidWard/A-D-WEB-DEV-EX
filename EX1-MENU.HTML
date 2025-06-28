@@ -484,6 +484,7 @@
     <button id="closeSidebar" class="cart-close-btn" aria-label="Close cart">&times;</button>
   </div>
   <div class="cart-sidebar-content" id="cart-items"></div>
+  <button id="checkout" class="checkout-btn" style="margin: 20px; padding: 10px; background-color: #FFC72C; color: #393e46; border: none; border-radius: 5px; cursor: pointer;">Checkout</button>
 </div>
 
 <style>
@@ -592,7 +593,9 @@
             <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile" id="Quarter-W-C"><br>
             <h2 style="font-family: Georgia; font-weight: bold;" class="item-name">Quarter Pounder</h2><br>
             <button class="costom" data-item="Quarter Pounder" style="font-family: Georgia; font-weight: bold;">Customize</button><br>
-            <button class="select-B" id="select-B" style="font-family: Georgia; font-weight: bold;" value="Quarter-W-C-1" >Select</button><br>
+            <button class="select-B" 
+            data-item="Quarter Pounder" 
+            data-default-options='["Cheese","Lettuce","Sauce: Regular"]' style="font-family: Georgia; font-weight: bold;" value="Quarter-W-C-1" >Select</button><br>
         </div>
         <div class="MENU-ITEM Burgers" id="McDouble-1">
             <img class="item-img" src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0592-999_McDouble_Alt_1564x1564-1:nutrition-calculator-tile" id="McDouble"><br>
@@ -765,20 +768,98 @@
 
 <!-- Customize Popup Modal -->
 <div id="customize-modal" class="customize-modal" style="display:none;">
-  <div class="customize-modal-content">
-    <div class="customize-modal-header">
-  <h2 id="customize-title">Customize BigMac</h2>
-  <button id="closeCustomize" class="customize-close-btn" aria-label="Close">&times;</button>
+    <div class="customize-modal-content" style="background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 36px 28px; min-width: 340px; max-width: 95vw;">
+        <div class="customize-modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+            <h2 id="customize-title" style="font-family: Georgia, 'Roboto', Arial, sans-serif; font-size: 1.35rem; font-weight: bold; color: #393e46; margin: 0;"></h2>
+            <button id="closeCustomize" class="customize-close-btn" aria-label="Close" style="background: none; border: none; font-size: 2rem; color: #888; cursor: pointer; transition: color 0.2s;">&times;</button>
+        </div>
+        <form id="customize-form" style="display: flex; flex-direction: column; gap: 4px; padding: 0;"></form>
+            <!-- Dynamic options go here -->
+        </form>
+        <button id="addToCartBtn" type="button"
+            style="
+                margin-top: 18px;
+                width: 100%;
+                background: linear-gradient(90deg, #FFC72C 60%, #ffe57f 100%);
+                color: #393e46;
+                font-family: Georgia, 'Roboto', Arial, sans-serif;
+                font-weight: bold;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 8px;
+                padding: 14px 0;
+                box-shadow: 0 2px 8px #FFC72C33;
+                cursor: pointer;
+                transition: background 0.2s, color 0.2s, transform 0.2s;
+            "
+            onmouseover="this.style.background='#393e46';this.style.color='#FFC72C';this.style.transform='scale(1.03)'"
+            onmouseout="this.style.background='linear-gradient(90deg, #FFC72C 60%, #ffe57f 100%)';this.style.color='#393e46';this.style.transform='scale(1)'"
+        >Add to Cart</button>
+    </div>
 </div>
-<form id="customize-form"></form>
-<button id="addToCartBtn" type="button">Add to Cart</button>
-  </div>
-</div>
+<style>
+#customize-modal label {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1.08rem;
+    color: #393e46;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2px;
+}
+#customize-modal input[type="checkbox"] {
+    accent-color: #FFC72C;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    border-radius: 4px;
+    border: 1.5px solid #393e46;
+    transition: box-shadow 0.2s;
+}
+#customize-modal select {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1.05rem;
+    border-radius: 6px;
+    border: 1.5px solid #FFC72C;
+    padding: 6px 10px;
+    background: #f7f7f7;
+    color: #393e46;
+    margin-left: 8px;
+    transition: border 0.2s;
+}
+#customize-modal select:focus {
+    border: 1.5px solid #393e46;
+    outline: none;
+}
+.customize-close-btn:hover {
+    color: #FFC72C !important;
+}
+@media (max-width: 600px) {
+    .customize-modal-content {
+        min-width: 90vw !important;
+        padding: 18px 6vw !important;
+    }
+    #customize-modal label {
+        font-size: 1rem;
+    }
+    #addToCartBtn {
+        font-size: 1rem !important;
+        padding: 12px 0 !important;
+    }
+}
+</style>
 
 <!-- Toast Notification Container -->
 <div id="cart-toast-container" style="position:fixed; bottom:32px; right:32px; z-index:5000; display:flex; flex-direction:column; align-items:flex-end; gap:12px;"></div>
 
 <style>
+.customize-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
 .cart-toast {
   min-width: 220px;
   max-width: 320px;
@@ -861,7 +942,158 @@ const menuOptions = {
     { label: "Bacon", name: "bacon", type: "checkbox", checked: false },
     { label: "Sauce", name: "sauce", type: "select", options: ["Regular", "Extra", "None"] }
   ]
+    , "Quarter Pounder": [
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+        { label: "Lettuce", name: "lettuce", type: "checkbox", checked: true },
+        { label: "Onion", name: "onion", type: "checkbox", checked: true },
+        { label: "Pickles", name: "pickles", type: "checkbox", checked: true },
+        { label: "Tomato", name: "tomato", type: "checkbox", checked: false },
+        { label: "Extra Beef Patty", name: "extra_beef", type: "checkbox", checked: false },
+        { label: "Bacon", name: "bacon", type: "checkbox", checked: false },
+        { label: "Sauce", name: "sauce", type: "select", options: ["Regular", "Extra", "None"] }
+    ],
+    "McDouble": [
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+        { label: "Lettuce", name: "lettuce", type: "checkbox", checked: true },
+        { label: "Onion", name: "onion", type: "checkbox", checked: true },
+        { label: "Pickles", name: "pickles", type: "checkbox", checked: true },
+        { label: "Tomato", name: "tomato", type: "checkbox", checked: false },
+        { label: "Extra Beef Patty", name: "extra_beef", type: "checkbox", checked: false },
+        { label: "Bacon", name: "bacon", type: "checkbox", checked: false },
+        { label: "Sauce", name: "sauce", type: "select", options: ["Regular", "Extra", "None"] }
+    ],
+    "Cheese Burger": [
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+        { label: "Lettuce", name: "lettuce", type: "checkbox", checked: true },
+        { label: "Onion", name: "onion", type: "checkbox", checked: true },
+        { label: "Pickles", name: "pickles", type: "checkbox", checked: true },
+        { label: "Tomato", name: "tomato", type: "checkbox", checked: false },
+        { label: "Extra Beef Patty", name: "extra_beef", type: "checkbox", checked: false },
+        { label: "Bacon", name: "bacon", type: "checkbox", checked: false },
+        { label: "Sauce", name: "sauce", type: "select", options: ["Regular", "Extra", "None"] }
+    ],
+    "Double Cheese Burger": [
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+        { label: "Lettuce", name: "lettuce", type: "checkbox", checked: true },
+        { label: "Onion", name: "onion", type: "checkbox", checked: true },
+        { label: "Pickles", name: "pickles", type: "checkbox", checked: true },
+        { label: "Tomato", name: "tomato", type: "checkbox", checked: false },
+        { label: "Extra Beef Patty", name: "extra_beef", type: "checkbox", checked: false },
+        { label: "Bacon", name: "bacon", type: "checkbox", checked: false },
+        { label: "Sauce", name: "sauce", type: "select", options: ["Regular", "Extra", "None"] }
+    ]
+    , "Bacon Egg & Cheese Bagel": [
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+        { label: "Bacon", name: "bacon", type: "checkbox", checked: true },
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+    ],  
+    "Bacon Egg & Cheese McGriddle": [
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+        { label: "Bacon", name: "bacon", type: "checkbox", checked: true },
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+    ],
+    "Bacon Egg & Cheese Biscuit": [
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+        { label: "Bacon", name: "bacon", type: "checkbox", checked: true },
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+    ]
+    , "Egg McMuffin": [
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+    ],
+    "Sausage McMuffin": [
+        { label: "Sausage", name: "sausage", type: "checkbox", checked: true },
+    ],
+    "Sausage McMuffin With Egg": [
+        { label: "Sausage", name: "sausage", type: "checkbox", checked: true },
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+    ]
+    , "Sausage Biscut": [
+        { label: "Sausage", name: "sausage", type: "checkbox", checked: true },
+    ],
+    "Sausage & Egg biscut": [
+        { label: "Sausage", name: "sausage", type: "checkbox", checked: true },
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+    ],
+    "Sausage McGriddle": [
+        { label: "Sausage", name: "sausage", type: "checkbox", checked: true },
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+    ],
+    "Sausage Egg Cheese McGriddle": [
+        { label: "Sausage", name: "sausage", type: "checkbox", checked: true },
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+    ],
+    "Sausage Egg Cheese Bagel": [
+        { label: "Sausage", name: "sausage", type: "checkbox", checked: true },
+        { label: "Egg", name: "egg", type: "checkbox", checked: true },
+        { label: "Cheese", name: "cheese", type: "checkbox", checked: true },
+    ],
+    "20pc McNuggets": [
+        { label: "BBQ Sauce", name: "bbq_sauce", type: "checkbox", checked: true },
+        { label: "Sweet & Sour Sauce", name: "sweet_sour_sauce", type: "checkbox", checked: true },
+        { label: "Hot Mustard Sauce", name: "hot_mustard_sauce", type: "checkbox", checked: false },
+        { label: "Honey Mustard Sauce", name: "honey_mustard_sauce", type: "checkbox", checked: false }
+    ],
+    "4pc McNuggets": [
+        { label: "BBQ Sauce", name: "bbq_sauce", type: "checkbox", checked: true },
+        { label: "Sweet & Sour Sauce", name: "sweet_sour_sauce", type: "checkbox", checked: true },
+        { label: "Hot Mustard Sauce", name: "hot_mustard_sauce", type: "checkbox", checked: false },
+        { label: "Honey Mustard Sauce", name: "honey_mustard_sauce", type: "checkbox", checked: false }
+    ],
+    "6pc McNuggets": [
+        { label: "BBQ Sauce", name: "bbq_sauce", type: "checkbox", checked: true },
+        { label: "Sweet & Sour Sauce", name: "sweet_sour_sauce", type: "checkbox", checked: true },
+        { label: "Hot Mustard Sauce", name: "hot_mustard_sauce", type: "checkbox", checked: false },
+        { label: "Honey Mustard Sauce", name: "honey_mustard_sauce", type: "checkbox", checked: false }
+    ],
+    "Small Fry": [
+        { label: "salt", name: "salt", type: "checkbox", checked: true },
+        { label: "Ketchup", name: "ketchup", type: "checkbox", checked: false },
+    ],
+    "Medium Fry": [
+        { label: "salt", name: "salt", type: "checkbox", checked: true },
+        { label: "Ketchup", name: "ketchup", type: "checkbox", checked: false },
+    ],
+    "Large Fry": [
+        { label: "salt", name: "salt", type: "checkbox", checked: true },
+        { label: "Ketchup", name: "ketchup", type: "checkbox", checked: false },
+    ],
+    "Small Fountain": [
+        { label: "Ice", name: "ice", type: "checkbox", checked: true },
+        { label: "coke", name: "Coca Cola", type: "checkbox", checked: false },
+        { label: "Diet Coke", name: "Diet Coke", type: "checkbox", checked: false },
+        { label: "Sprite", name: "Sprite", type: "checkbox", checked: false },
+        { label: "Fanta Orange", name: "Fanta Orange", type: "checkbox", checked: false },
+        { label: "Dr Pepper", name: "Dr Pepper", type: "checkbox", checked: false },
+        { label: "Sweet Tea", name: "Sweet Tea", type: "checkbox", checked: false },
+        { label: "Unsweetened Iced Tea", name: "Unsweetened Iced Tea", type: "checkbox", checked: false },
+        { label: "Lemonade", name: "Lemonade", type: "checkbox", checked: false }
+    ],
+    "Medium Fountain": [
+        { label: "Ice", name: "ice", type: "checkbox", checked: true },
+        { label: "coke", name: "Coca Cola", type: "checkbox", checked: false },
+        { label: "Diet Coke", name: "Diet Coke", type: "checkbox", checked: false },
+        { label: "Sprite", name: "Sprite", type: "checkbox", checked: false },
+        { label: "Fanta Orange", name: "Fanta Orange", type: "checkbox", checked: false },
+        { label: "Dr Pepper", name: "Dr Pepper", type: "checkbox", checked: false },
+        { label: "Sweet Tea", name: "Sweet Tea", type: "checkbox", checked: false },
+        { label: "Unsweetened Iced Tea", name: "Unsweetened Iced Tea", type: "checkbox", checked: false },
+        { label: "Lemonade", name: "Lemonade", type: "checkbox", checked: false }
+    ],
+    "Large Fountain": [
+        { label: "Ice", name: "ice", type: "checkbox", checked: true },
+        { label: "coke", name: "Coca Cola", type: "checkbox", checked: false },
+        { label: "Diet Coke", name: "Diet Coke", type: "checkbox", checked: false },
+        { label: "Sprite", name: "Sprite", type: "checkbox", checked: false },
+        { label: "Fanta Orange", name: "Fanta Orange", type: "checkbox", checked: false },
+        { label: "Dr Pepper", name: "Dr Pepper", type: "checkbox", checked: false },
+        { label: "Sweet Tea", name: "Sweet Tea", type: "checkbox", checked: false },
+        { label: "Unsweetened Iced Tea", name: "Unsweetened Iced Tea", type: "checkbox", checked: false },
+        { label: "Lemonade", name: "Lemonade", type: "checkbox", checked: false }
+    ]
 };
+
+
 
 function openCustomizeModal(itemName) {
   const modal = document.getElementById('customize-modal');
@@ -928,7 +1160,7 @@ document.getElementById('addToCartBtn').onclick = function() {
 }
 .customize-close-btn {
   position: absolute;
-  top: 12px; right: 16px;
+  top: 8px; right: 16px;
   background: none;
   border: none;
   font-size: 2rem;

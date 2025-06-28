@@ -364,6 +364,51 @@
             color: #222831;
             cursor: pointer;
         }
+        .sub-content input,
+        .sub-content button {
+            background: #fff;
+            color: #222831;
+            border: 2px solid #222831;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.5s;
+        }
+        .sub-content input:hover,
+        .sub-content button:hover {
+            background: #fff;
+            color: #222831;
+            border: 2px solid #222831;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.5s;
+        }
+        .sub-content input:focus {
+            background: #fff;
+            color: #222831;
+            border: 2px solid #222831;
+            padding: 25px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        .sub-content button:focus {
+            background: linear-gradient(-45deg, #fff, #fff, #393e46, #fff, #fff);
+            background-size: 400% 400%;
+            animation: gradientFlow 1s;
+            background-color: #fff;
+            color: #0b0d0f;
+            transition: all 0.5s;
+            font-weight: bold;
+            height: 50px;
+            width: 200px;
+            display: inline-block;
+            border-radius: 5px;
+        }
     </style>
     <script>
 
@@ -416,9 +461,9 @@
     <div class="sub-content">
         <span class="close" onclick="closeModal(event)">&times;</span>
         <!-- You can add content here -->
-        <h2>Subscribe to save on your meal!</h2>
-        <input type="email" placeholder="Enter your email" style="margin-bottom:10px;"><br>
-        <button onclick="closeModal(event)">Subscribe</button>
+        <h2>Subscribe to save on your meal!</h2><br>
+        <input class="sub-input" type="email" placeholder="Enter your email" style="margin-bottom:10px;"><br>
+        <button class="sub-button" onclick="setTimeout(() => closeModal(event), 1000)">Subscribe</button>
     </div>
 </div>
 <div class="flip-card">
